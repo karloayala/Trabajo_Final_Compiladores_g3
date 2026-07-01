@@ -1,163 +1,237 @@
-grammar miniparser;
+parser grammar miniparser;
 
-// Regla Inicial
-program : (globalDeclaration | functionDefinition)* EOF ;
+options {
+    tokenVocab = minilexer;
+}
 
-globalDeclaration : (CONST)? type_ variableList SEMICOLON ;
+// ====================================================
+// PROGRAMA
+// ====================================================
 
-functionDefinition : type_ IDENTIFIER LPAREN parameterList? RPAREN block ;
+program
+    : statement* EOF
+    ;
 
-parameterList : parameter (COMMA parameter)* ;
-parameter : type_ IDENTIFIER ;
-
-type_ : INT | FLOAT | DOUBLE | CHAR | BOOL | VOID ;
-
-block : LBRACE statement* RBRACE ;
+// ====================================================
+// STATEMENTS
+// ====================================================
 
 statement
     : variableDeclaration
     | assignment
-    | incrementStatement
-    | decrementStatement
     | ifStatement
     | whileStatement
     | forStatement
-    | doWhileStatement
-    | switchStatement
+    | functionDefinition
+    | functionCall SEMICOLON
     | returnStatement
-    | breakStatement
-    | continueStatement
-    | printfStatement
-    | scanfStatement
     | block
+    | SEMICOLON
     ;
 
-variableDeclaration : type_ variableList SEMICOLON ;
-variableList : variable (COMMA variable)* ;
-variable : IDENTIFIER (LBRACKET INTEGER_LITERAL RBRACKET)? (ASSIGN expression)? ;
+// ====================================================
+// BLOQUE
+// ====================================================
 
-assignment : (IDENTIFIER | arrayAccess) assignmentOperator expression SEMICOLON ;
-assignmentOperator : ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | MULT_ASSIGN | DIV_ASSIGN | MOD_ASSIGN ;
+block
+    : LBRACE statement* RBRACE
+    ;
 
-incrementStatement : IDENTIFIER INCREMENT SEMICOLON ;
-decrementStatement : IDENTIFIER DECREMENT SEMICOLON ;
+// ====================================================
+// VARIABLES
+// ====================================================
 
-ifStatement : IF LPAREN expression RPAREN statement (ELSE statement)? ;
-whileStatement : WHILE LPAREN expression RPAREN statement ;
-doWhileStatement : DO statement WHILE LPAREN expression RPAREN SEMICOLON ;
+variableDeclaration
+    : type variableList SEMICOLON
+    ;
 
-forStatement : FOR LPAREN forInit? SEMICOLON expression? SEMICOLON forUpdate? RPAREN statement ;
-forInit : variableDeclarationFor | assignmentNoSemi ;
-variableDeclarationFor : type_ IDENTIFIER ASSIGN expression ;
-assignmentNoSemi : IDENTIFIER ASSIGN expression ;
-forUpdate : IDENTIFIER (INCREMENT | DECREMENT | assignmentOperator expression) ;
+variableList
+    : variable (COMMA variable)*
+    ;
 
-switchStatement : SWITCH LPAREN expression RPAREN LBRACE caseStatement* defaultStatement? RBRACE ;
-caseStatement : CASE literal COLON statement* ;
-defaultStatement : DEFAULT COLON statement* ;
+variable
+    : IDENTIFIER (ASSIGN expression)?
+    ;
 
-returnStatement : RETURN expression? SEMICOLON ;
-breakStatement : BREAK SEMICOLON ;
-continueStatement : CONTINUE SEMICOLON ;
+// ====================================================
+// ASIGNACIÓN
+// ====================================================
 
-literal : INTEGER_LITERAL | FLOAT_LITERAL | STRING_LITERAL | CHAR_LITERAL | TRUE | FALSE ;
+assignment
+    : (IDENTIFIER | arrayAccess)
+      assignmentOperator
+      expression
+      SEMICOLON
+    ;
 
-expression : logicalOrExpression ;
-logicalOrExpression : logicalAndExpression (OR logicalAndExpression)* ;
-logicalAndExpression : equalityExpression (AND equalityExpression)* ;
-equalityExpression : relationalExpression ((EQUAL | NOT_EQUAL) relationalExpression)* ;
-relationalExpression : additiveExpression ((GREATER | LESS | GREATER_EQUAL | LESS_EQUAL) additiveExpression)* ;
-additiveExpression : multiplicativeExpression ((PLUS | MINUS) multiplicativeExpression)* ;
-multiplicativeExpression : unaryExpression ((MULT | DIV | MOD) unaryExpression)* ;
-unaryExpression : NOT unaryExpression | MINUS unaryExpression | postfixExpression ;
-postfixExpression : primaryExpression ;
+assignmentOperator
+    : ASSIGN
+    | PLUS_ASSIGN
+    | MINUS_ASSIGN
+    | MULT_ASSIGN
+    | DIV_ASSIGN
+    | MOD_ASSIGN
+    ;
 
-primaryExpression
-    : functionCall
-    | arrayAccess
-    | literal
+// ====================================================
+// IF
+// ====================================================
+
+ifStatement
+    : IF LPAREN expression RPAREN statement (ELSE statement)?
+    ;
+
+// ====================================================
+// WHILE
+// ====================================================
+
+whileStatement
+    : WHILE LPAREN expression RPAREN statement
+    ;
+
+// ====================================================
+// FOR (CORREGIDO Y ESTABLE)
+// ====================================================
+
+forStatement
+    : FOR LPAREN
+        forInit? SEMICOLON
+        expression? SEMICOLON
+        forUpdate?
+      RPAREN
+      statement
+    ;
+
+// INIT del FOR
+forInit
+    : variableDeclarationFor
+    | assignmentNoSemi
+    ;
+
+// declaración sin punto y coma
+variableDeclarationFor
+    : type variableList
+    ;
+
+// asignación sin ;
+assignmentNoSemi
+    : IDENTIFIER assignmentOperator expression
+    ;
+
+// UPDATE del FOR (CLAVE)
+forUpdate
+    : IDENTIFIER INCREMENT
+    | IDENTIFIER DECREMENT
+    | assignmentNoSemi
+    ;
+
+// ====================================================
+// FUNCIONES
+// ====================================================
+
+functionDefinition
+    : type IDENTIFIER LPAREN parameterList? RPAREN block
+    ;
+
+parameterList
+    : parameter (COMMA parameter)*
+    ;
+
+parameter
+    : type IDENTIFIER
+    ;
+
+// ====================================================
+// FUNCIONES CALL
+// ====================================================
+
+functionCall
+    : IDENTIFIER LPAREN argumentList? RPAREN
+    ;
+
+argumentList
+    : expression (COMMA expression)*
+    ;
+
+// ====================================================
+// RETURN
+// ====================================================
+
+returnStatement
+    : RETURN expression? SEMICOLON
+    ;
+
+// ====================================================
+// ARRAY
+// ====================================================
+
+arrayAccess
+    : IDENTIFIER LBRACKET expression RBRACKET
+    ;
+
+// ====================================================
+// TYPES
+// ====================================================
+
+type
+    : INT
+    | FLOAT
+    | DOUBLE
+    | CHAR
+    | BOOL
+    | VOID
+    ;
+
+// ====================================================
+// EXPRESSIONS
+// ====================================================
+
+expression
+    : logicalOr
+    ;
+
+logicalOr
+    : logicalAnd (OR logicalAnd)*
+    ;
+
+logicalAnd
+    : equality (AND equality)*
+    ;
+
+equality
+    : relational ((EQUAL | NOT_EQUAL) relational)*
+    ;
+
+relational
+    : additive ((GREATER | LESS | GREATER_EQUAL | LESS_EQUAL) additive)*
+    ;
+
+additive
+    : multiplicative ((PLUS | MINUS) multiplicative)*
+    ;
+
+multiplicative
+    : unary ((MULT | DIV | MOD) unary)*
+    ;
+
+unary
+    : (NOT | PLUS | MINUS) unary
+    | postfix
+    ;
+
+postfix
+    : primary (INCREMENT | DECREMENT)*
+    ;
+
+primary
+    : INTEGER_LITERAL
+    | FLOAT_LITERAL
+    | STRING_LITERAL
+    | CHAR_LITERAL
+    | TRUE
+    | FALSE
     | IDENTIFIER
+    | functionCall
+    | arrayAccess
     | LPAREN expression RPAREN
-    | sizeofExpression
     ;
-
-functionCall : IDENTIFIER LPAREN argumentList? RPAREN ;
-printfStatement : PRINTF LPAREN printfArguments? RPAREN SEMICOLON ;
-scanfStatement : SCANF LPAREN scanfArguments RPAREN SEMICOLON ;
-
-argumentList : expression (COMMA expression)* ;
-printfArguments : expression (COMMA expression)* ;
-scanfArguments : expression (COMMA scanfArgument)* ;
-scanfArgument : IDENTIFIER | arrayAccess ;
-
-arrayAccess : IDENTIFIER LBRACKET expression RBRACKET ;
-sizeofExpression : SIZEOF LPAREN (type_ | expression) RPAREN ;
-
-// TOKENS LÉXICOS
-IF : 'if' ;
-ELSE : 'else' ;
-WHILE : 'while' ;
-FOR : 'for' ;
-DO : 'do' ;
-SWITCH : 'switch' ;
-CASE : 'case' ;
-DEFAULT : 'default' ;
-CONST : 'const' ;
-PRINTF : 'printf' ;
-SCANF : 'scanf' ;
-SIZEOF : 'sizeof' ;
-INT : 'int' ;
-FLOAT : 'float' ;
-DOUBLE : 'double' ;
-CHAR : 'char' ;
-BOOL : 'bool' ;
-VOID : 'void' ;
-RETURN : 'return' ;
-BREAK : 'break' ;
-CONTINUE : 'continue' ;
-TRUE : 'true' ;
-FALSE : 'false' ;
-
-PLUS_ASSIGN : '+=' ;
-MINUS_ASSIGN : '-=' ;
-MULT_ASSIGN : '*=' ;
-DIV_ASSIGN : '/=' ;
-MOD_ASSIGN : '%=' ;
-ASSIGN : '=' ;
-INCREMENT : '++' ;
-DECREMENT : '--' ;
-PLUS : '+' ;
-MINUS : '-' ;
-MULT : '*' ;
-DIV : '/' ;
-MOD : '%' ;
-EQUAL : '==' ;
-NOT_EQUAL : '!=' ;
-GREATER_EQUAL : '>=' ;
-LESS_EQUAL : '<=' ;
-GREATER : '>' ;
-LESS : '<' ;
-AND : '&&' ;
-OR : '||' ;
-NOT : '!' ;
-
-LPAREN : '(' ;
-RPAREN : ')' ;
-LBRACE : '{' ;
-RBRACE : '}' ;
-LBRACKET : '[' ;
-RBRACKET : ']' ;
-SEMICOLON : ';' ;
-COMMA : ',' ;
-COLON : ':' ;
-
-FLOAT_LITERAL : [0-9]+ '.' [0-9]+ ;
-INTEGER_LITERAL : [0-9]+ ;
-STRING_LITERAL : '"' .*? '"' ;
-CHAR_LITERAL : '\'' . '\'' ;
-IDENTIFIER : [a-zA-Z_][a-zA-Z0-9_]* ;
-
-LINE_COMMENT : '//' ~[\r\n]* -> skip ;
-BLOCK_COMMENT : '/*' .*? '*/' -> skip ;
-WHITESPACE : [ \t\r\n]+ -> skip ;
-ERROR_CHAR : . ;

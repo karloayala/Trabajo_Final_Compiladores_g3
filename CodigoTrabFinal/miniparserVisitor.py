@@ -14,38 +14,13 @@ class miniparserVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by miniparser#globalDeclaration.
-    def visitGlobalDeclaration(self, ctx:miniparser.GlobalDeclarationContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniparser#functionDefinition.
-    def visitFunctionDefinition(self, ctx:miniparser.FunctionDefinitionContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniparser#parameterList.
-    def visitParameterList(self, ctx:miniparser.ParameterListContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniparser#parameter.
-    def visitParameter(self, ctx:miniparser.ParameterContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniparser#type.
-    def visitType(self, ctx:miniparser.TypeContext):
+    # Visit a parse tree produced by miniparser#statement.
+    def visitStatement(self, ctx:miniparser.StatementContext):
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by miniparser#block.
     def visitBlock(self, ctx:miniparser.BlockContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniparser#statement.
-    def visitStatement(self, ctx:miniparser.StatementContext):
         return self.visitChildren(ctx)
 
 
@@ -74,16 +49,6 @@ class miniparserVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by miniparser#incrementStatement.
-    def visitIncrementStatement(self, ctx:miniparser.IncrementStatementContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniparser#decrementStatement.
-    def visitDecrementStatement(self, ctx:miniparser.DecrementStatementContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by miniparser#ifStatement.
     def visitIfStatement(self, ctx:miniparser.IfStatementContext):
         return self.visitChildren(ctx)
@@ -96,11 +61,6 @@ class miniparserVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by miniparser#forStatement.
     def visitForStatement(self, ctx:miniparser.ForStatementContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniparser#doWhileStatement.
-    def visitDoWhileStatement(self, ctx:miniparser.DoWhileStatementContext):
         return self.visitChildren(ctx)
 
 
@@ -124,88 +84,18 @@ class miniparserVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by miniparser#switchStatement.
-    def visitSwitchStatement(self, ctx:miniparser.SwitchStatementContext):
+    # Visit a parse tree produced by miniparser#functionDefinition.
+    def visitFunctionDefinition(self, ctx:miniparser.FunctionDefinitionContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by miniparser#caseStatement.
-    def visitCaseStatement(self, ctx:miniparser.CaseStatementContext):
+    # Visit a parse tree produced by miniparser#parameterList.
+    def visitParameterList(self, ctx:miniparser.ParameterListContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by miniparser#defaultStatement.
-    def visitDefaultStatement(self, ctx:miniparser.DefaultStatementContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniparser#returnStatement.
-    def visitReturnStatement(self, ctx:miniparser.ReturnStatementContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniparser#breakStatement.
-    def visitBreakStatement(self, ctx:miniparser.BreakStatementContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniparser#continueStatement.
-    def visitContinueStatement(self, ctx:miniparser.ContinueStatementContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniparser#literal.
-    def visitLiteral(self, ctx:miniparser.LiteralContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniparser#expression.
-    def visitExpression(self, ctx:miniparser.ExpressionContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniparser#logicalOrExpression.
-    def visitLogicalOrExpression(self, ctx:miniparser.LogicalOrExpressionContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniparser#logicalAndExpression.
-    def visitLogicalAndExpression(self, ctx:miniparser.LogicalAndExpressionContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniparser#equalityExpression.
-    def visitEqualityExpression(self, ctx:miniparser.EqualityExpressionContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniparser#relationalExpression.
-    def visitRelationalExpression(self, ctx:miniparser.RelationalExpressionContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniparser#additiveExpression.
-    def visitAdditiveExpression(self, ctx:miniparser.AdditiveExpressionContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniparser#multiplicativeExpression.
-    def visitMultiplicativeExpression(self, ctx:miniparser.MultiplicativeExpressionContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniparser#unaryExpression.
-    def visitUnaryExpression(self, ctx:miniparser.UnaryExpressionContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniparser#postfixExpression.
-    def visitPostfixExpression(self, ctx:miniparser.PostfixExpressionContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniparser#primaryExpression.
-    def visitPrimaryExpression(self, ctx:miniparser.PrimaryExpressionContext):
+    # Visit a parse tree produced by miniparser#parameter.
+    def visitParameter(self, ctx:miniparser.ParameterContext):
         return self.visitChildren(ctx)
 
 
@@ -214,33 +104,13 @@ class miniparserVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by miniparser#printfStatement.
-    def visitPrintfStatement(self, ctx:miniparser.PrintfStatementContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniparser#scanfStatement.
-    def visitScanfStatement(self, ctx:miniparser.ScanfStatementContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by miniparser#argumentList.
     def visitArgumentList(self, ctx:miniparser.ArgumentListContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by miniparser#printfArguments.
-    def visitPrintfArguments(self, ctx:miniparser.PrintfArgumentsContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniparser#scanfArguments.
-    def visitScanfArguments(self, ctx:miniparser.ScanfArgumentsContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniparser#scanfArgument.
-    def visitScanfArgument(self, ctx:miniparser.ScanfArgumentContext):
+    # Visit a parse tree produced by miniparser#returnStatement.
+    def visitReturnStatement(self, ctx:miniparser.ReturnStatementContext):
         return self.visitChildren(ctx)
 
 
@@ -249,8 +119,58 @@ class miniparserVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by miniparser#sizeofExpression.
-    def visitSizeofExpression(self, ctx:miniparser.SizeofExpressionContext):
+    # Visit a parse tree produced by miniparser#type.
+    def visitType(self, ctx:miniparser.TypeContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by miniparser#expression.
+    def visitExpression(self, ctx:miniparser.ExpressionContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by miniparser#logicalOr.
+    def visitLogicalOr(self, ctx:miniparser.LogicalOrContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by miniparser#logicalAnd.
+    def visitLogicalAnd(self, ctx:miniparser.LogicalAndContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by miniparser#equality.
+    def visitEquality(self, ctx:miniparser.EqualityContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by miniparser#relational.
+    def visitRelational(self, ctx:miniparser.RelationalContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by miniparser#additive.
+    def visitAdditive(self, ctx:miniparser.AdditiveContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by miniparser#multiplicative.
+    def visitMultiplicative(self, ctx:miniparser.MultiplicativeContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by miniparser#unary.
+    def visitUnary(self, ctx:miniparser.UnaryContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by miniparser#postfix.
+    def visitPostfix(self, ctx:miniparser.PostfixContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by miniparser#primary.
+    def visitPrimary(self, ctx:miniparser.PrimaryContext):
         return self.visitChildren(ctx)
 
 

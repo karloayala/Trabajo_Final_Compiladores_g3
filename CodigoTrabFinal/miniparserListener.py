@@ -17,48 +17,12 @@ class miniparserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by miniparser#globalDeclaration.
-    def enterGlobalDeclaration(self, ctx:miniparser.GlobalDeclarationContext):
+    # Enter a parse tree produced by miniparser#statement.
+    def enterStatement(self, ctx:miniparser.StatementContext):
         pass
 
-    # Exit a parse tree produced by miniparser#globalDeclaration.
-    def exitGlobalDeclaration(self, ctx:miniparser.GlobalDeclarationContext):
-        pass
-
-
-    # Enter a parse tree produced by miniparser#functionDefinition.
-    def enterFunctionDefinition(self, ctx:miniparser.FunctionDefinitionContext):
-        pass
-
-    # Exit a parse tree produced by miniparser#functionDefinition.
-    def exitFunctionDefinition(self, ctx:miniparser.FunctionDefinitionContext):
-        pass
-
-
-    # Enter a parse tree produced by miniparser#parameterList.
-    def enterParameterList(self, ctx:miniparser.ParameterListContext):
-        pass
-
-    # Exit a parse tree produced by miniparser#parameterList.
-    def exitParameterList(self, ctx:miniparser.ParameterListContext):
-        pass
-
-
-    # Enter a parse tree produced by miniparser#parameter.
-    def enterParameter(self, ctx:miniparser.ParameterContext):
-        pass
-
-    # Exit a parse tree produced by miniparser#parameter.
-    def exitParameter(self, ctx:miniparser.ParameterContext):
-        pass
-
-
-    # Enter a parse tree produced by miniparser#type.
-    def enterType(self, ctx:miniparser.TypeContext):
-        pass
-
-    # Exit a parse tree produced by miniparser#type.
-    def exitType(self, ctx:miniparser.TypeContext):
+    # Exit a parse tree produced by miniparser#statement.
+    def exitStatement(self, ctx:miniparser.StatementContext):
         pass
 
 
@@ -68,15 +32,6 @@ class miniparserListener(ParseTreeListener):
 
     # Exit a parse tree produced by miniparser#block.
     def exitBlock(self, ctx:miniparser.BlockContext):
-        pass
-
-
-    # Enter a parse tree produced by miniparser#statement.
-    def enterStatement(self, ctx:miniparser.StatementContext):
-        pass
-
-    # Exit a parse tree produced by miniparser#statement.
-    def exitStatement(self, ctx:miniparser.StatementContext):
         pass
 
 
@@ -125,24 +80,6 @@ class miniparserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by miniparser#incrementStatement.
-    def enterIncrementStatement(self, ctx:miniparser.IncrementStatementContext):
-        pass
-
-    # Exit a parse tree produced by miniparser#incrementStatement.
-    def exitIncrementStatement(self, ctx:miniparser.IncrementStatementContext):
-        pass
-
-
-    # Enter a parse tree produced by miniparser#decrementStatement.
-    def enterDecrementStatement(self, ctx:miniparser.DecrementStatementContext):
-        pass
-
-    # Exit a parse tree produced by miniparser#decrementStatement.
-    def exitDecrementStatement(self, ctx:miniparser.DecrementStatementContext):
-        pass
-
-
     # Enter a parse tree produced by miniparser#ifStatement.
     def enterIfStatement(self, ctx:miniparser.IfStatementContext):
         pass
@@ -167,15 +104,6 @@ class miniparserListener(ParseTreeListener):
 
     # Exit a parse tree produced by miniparser#forStatement.
     def exitForStatement(self, ctx:miniparser.ForStatementContext):
-        pass
-
-
-    # Enter a parse tree produced by miniparser#doWhileStatement.
-    def enterDoWhileStatement(self, ctx:miniparser.DoWhileStatementContext):
-        pass
-
-    # Exit a parse tree produced by miniparser#doWhileStatement.
-    def exitDoWhileStatement(self, ctx:miniparser.DoWhileStatementContext):
         pass
 
 
@@ -215,156 +143,30 @@ class miniparserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by miniparser#switchStatement.
-    def enterSwitchStatement(self, ctx:miniparser.SwitchStatementContext):
+    # Enter a parse tree produced by miniparser#functionDefinition.
+    def enterFunctionDefinition(self, ctx:miniparser.FunctionDefinitionContext):
         pass
 
-    # Exit a parse tree produced by miniparser#switchStatement.
-    def exitSwitchStatement(self, ctx:miniparser.SwitchStatementContext):
-        pass
-
-
-    # Enter a parse tree produced by miniparser#caseStatement.
-    def enterCaseStatement(self, ctx:miniparser.CaseStatementContext):
-        pass
-
-    # Exit a parse tree produced by miniparser#caseStatement.
-    def exitCaseStatement(self, ctx:miniparser.CaseStatementContext):
+    # Exit a parse tree produced by miniparser#functionDefinition.
+    def exitFunctionDefinition(self, ctx:miniparser.FunctionDefinitionContext):
         pass
 
 
-    # Enter a parse tree produced by miniparser#defaultStatement.
-    def enterDefaultStatement(self, ctx:miniparser.DefaultStatementContext):
+    # Enter a parse tree produced by miniparser#parameterList.
+    def enterParameterList(self, ctx:miniparser.ParameterListContext):
         pass
 
-    # Exit a parse tree produced by miniparser#defaultStatement.
-    def exitDefaultStatement(self, ctx:miniparser.DefaultStatementContext):
-        pass
-
-
-    # Enter a parse tree produced by miniparser#returnStatement.
-    def enterReturnStatement(self, ctx:miniparser.ReturnStatementContext):
-        pass
-
-    # Exit a parse tree produced by miniparser#returnStatement.
-    def exitReturnStatement(self, ctx:miniparser.ReturnStatementContext):
+    # Exit a parse tree produced by miniparser#parameterList.
+    def exitParameterList(self, ctx:miniparser.ParameterListContext):
         pass
 
 
-    # Enter a parse tree produced by miniparser#breakStatement.
-    def enterBreakStatement(self, ctx:miniparser.BreakStatementContext):
+    # Enter a parse tree produced by miniparser#parameter.
+    def enterParameter(self, ctx:miniparser.ParameterContext):
         pass
 
-    # Exit a parse tree produced by miniparser#breakStatement.
-    def exitBreakStatement(self, ctx:miniparser.BreakStatementContext):
-        pass
-
-
-    # Enter a parse tree produced by miniparser#continueStatement.
-    def enterContinueStatement(self, ctx:miniparser.ContinueStatementContext):
-        pass
-
-    # Exit a parse tree produced by miniparser#continueStatement.
-    def exitContinueStatement(self, ctx:miniparser.ContinueStatementContext):
-        pass
-
-
-    # Enter a parse tree produced by miniparser#literal.
-    def enterLiteral(self, ctx:miniparser.LiteralContext):
-        pass
-
-    # Exit a parse tree produced by miniparser#literal.
-    def exitLiteral(self, ctx:miniparser.LiteralContext):
-        pass
-
-
-    # Enter a parse tree produced by miniparser#expression.
-    def enterExpression(self, ctx:miniparser.ExpressionContext):
-        pass
-
-    # Exit a parse tree produced by miniparser#expression.
-    def exitExpression(self, ctx:miniparser.ExpressionContext):
-        pass
-
-
-    # Enter a parse tree produced by miniparser#logicalOrExpression.
-    def enterLogicalOrExpression(self, ctx:miniparser.LogicalOrExpressionContext):
-        pass
-
-    # Exit a parse tree produced by miniparser#logicalOrExpression.
-    def exitLogicalOrExpression(self, ctx:miniparser.LogicalOrExpressionContext):
-        pass
-
-
-    # Enter a parse tree produced by miniparser#logicalAndExpression.
-    def enterLogicalAndExpression(self, ctx:miniparser.LogicalAndExpressionContext):
-        pass
-
-    # Exit a parse tree produced by miniparser#logicalAndExpression.
-    def exitLogicalAndExpression(self, ctx:miniparser.LogicalAndExpressionContext):
-        pass
-
-
-    # Enter a parse tree produced by miniparser#equalityExpression.
-    def enterEqualityExpression(self, ctx:miniparser.EqualityExpressionContext):
-        pass
-
-    # Exit a parse tree produced by miniparser#equalityExpression.
-    def exitEqualityExpression(self, ctx:miniparser.EqualityExpressionContext):
-        pass
-
-
-    # Enter a parse tree produced by miniparser#relationalExpression.
-    def enterRelationalExpression(self, ctx:miniparser.RelationalExpressionContext):
-        pass
-
-    # Exit a parse tree produced by miniparser#relationalExpression.
-    def exitRelationalExpression(self, ctx:miniparser.RelationalExpressionContext):
-        pass
-
-
-    # Enter a parse tree produced by miniparser#additiveExpression.
-    def enterAdditiveExpression(self, ctx:miniparser.AdditiveExpressionContext):
-        pass
-
-    # Exit a parse tree produced by miniparser#additiveExpression.
-    def exitAdditiveExpression(self, ctx:miniparser.AdditiveExpressionContext):
-        pass
-
-
-    # Enter a parse tree produced by miniparser#multiplicativeExpression.
-    def enterMultiplicativeExpression(self, ctx:miniparser.MultiplicativeExpressionContext):
-        pass
-
-    # Exit a parse tree produced by miniparser#multiplicativeExpression.
-    def exitMultiplicativeExpression(self, ctx:miniparser.MultiplicativeExpressionContext):
-        pass
-
-
-    # Enter a parse tree produced by miniparser#unaryExpression.
-    def enterUnaryExpression(self, ctx:miniparser.UnaryExpressionContext):
-        pass
-
-    # Exit a parse tree produced by miniparser#unaryExpression.
-    def exitUnaryExpression(self, ctx:miniparser.UnaryExpressionContext):
-        pass
-
-
-    # Enter a parse tree produced by miniparser#postfixExpression.
-    def enterPostfixExpression(self, ctx:miniparser.PostfixExpressionContext):
-        pass
-
-    # Exit a parse tree produced by miniparser#postfixExpression.
-    def exitPostfixExpression(self, ctx:miniparser.PostfixExpressionContext):
-        pass
-
-
-    # Enter a parse tree produced by miniparser#primaryExpression.
-    def enterPrimaryExpression(self, ctx:miniparser.PrimaryExpressionContext):
-        pass
-
-    # Exit a parse tree produced by miniparser#primaryExpression.
-    def exitPrimaryExpression(self, ctx:miniparser.PrimaryExpressionContext):
+    # Exit a parse tree produced by miniparser#parameter.
+    def exitParameter(self, ctx:miniparser.ParameterContext):
         pass
 
 
@@ -377,24 +179,6 @@ class miniparserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by miniparser#printfStatement.
-    def enterPrintfStatement(self, ctx:miniparser.PrintfStatementContext):
-        pass
-
-    # Exit a parse tree produced by miniparser#printfStatement.
-    def exitPrintfStatement(self, ctx:miniparser.PrintfStatementContext):
-        pass
-
-
-    # Enter a parse tree produced by miniparser#scanfStatement.
-    def enterScanfStatement(self, ctx:miniparser.ScanfStatementContext):
-        pass
-
-    # Exit a parse tree produced by miniparser#scanfStatement.
-    def exitScanfStatement(self, ctx:miniparser.ScanfStatementContext):
-        pass
-
-
     # Enter a parse tree produced by miniparser#argumentList.
     def enterArgumentList(self, ctx:miniparser.ArgumentListContext):
         pass
@@ -404,30 +188,12 @@ class miniparserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by miniparser#printfArguments.
-    def enterPrintfArguments(self, ctx:miniparser.PrintfArgumentsContext):
+    # Enter a parse tree produced by miniparser#returnStatement.
+    def enterReturnStatement(self, ctx:miniparser.ReturnStatementContext):
         pass
 
-    # Exit a parse tree produced by miniparser#printfArguments.
-    def exitPrintfArguments(self, ctx:miniparser.PrintfArgumentsContext):
-        pass
-
-
-    # Enter a parse tree produced by miniparser#scanfArguments.
-    def enterScanfArguments(self, ctx:miniparser.ScanfArgumentsContext):
-        pass
-
-    # Exit a parse tree produced by miniparser#scanfArguments.
-    def exitScanfArguments(self, ctx:miniparser.ScanfArgumentsContext):
-        pass
-
-
-    # Enter a parse tree produced by miniparser#scanfArgument.
-    def enterScanfArgument(self, ctx:miniparser.ScanfArgumentContext):
-        pass
-
-    # Exit a parse tree produced by miniparser#scanfArgument.
-    def exitScanfArgument(self, ctx:miniparser.ScanfArgumentContext):
+    # Exit a parse tree produced by miniparser#returnStatement.
+    def exitReturnStatement(self, ctx:miniparser.ReturnStatementContext):
         pass
 
 
@@ -440,12 +206,102 @@ class miniparserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by miniparser#sizeofExpression.
-    def enterSizeofExpression(self, ctx:miniparser.SizeofExpressionContext):
+    # Enter a parse tree produced by miniparser#type.
+    def enterType(self, ctx:miniparser.TypeContext):
         pass
 
-    # Exit a parse tree produced by miniparser#sizeofExpression.
-    def exitSizeofExpression(self, ctx:miniparser.SizeofExpressionContext):
+    # Exit a parse tree produced by miniparser#type.
+    def exitType(self, ctx:miniparser.TypeContext):
+        pass
+
+
+    # Enter a parse tree produced by miniparser#expression.
+    def enterExpression(self, ctx:miniparser.ExpressionContext):
+        pass
+
+    # Exit a parse tree produced by miniparser#expression.
+    def exitExpression(self, ctx:miniparser.ExpressionContext):
+        pass
+
+
+    # Enter a parse tree produced by miniparser#logicalOr.
+    def enterLogicalOr(self, ctx:miniparser.LogicalOrContext):
+        pass
+
+    # Exit a parse tree produced by miniparser#logicalOr.
+    def exitLogicalOr(self, ctx:miniparser.LogicalOrContext):
+        pass
+
+
+    # Enter a parse tree produced by miniparser#logicalAnd.
+    def enterLogicalAnd(self, ctx:miniparser.LogicalAndContext):
+        pass
+
+    # Exit a parse tree produced by miniparser#logicalAnd.
+    def exitLogicalAnd(self, ctx:miniparser.LogicalAndContext):
+        pass
+
+
+    # Enter a parse tree produced by miniparser#equality.
+    def enterEquality(self, ctx:miniparser.EqualityContext):
+        pass
+
+    # Exit a parse tree produced by miniparser#equality.
+    def exitEquality(self, ctx:miniparser.EqualityContext):
+        pass
+
+
+    # Enter a parse tree produced by miniparser#relational.
+    def enterRelational(self, ctx:miniparser.RelationalContext):
+        pass
+
+    # Exit a parse tree produced by miniparser#relational.
+    def exitRelational(self, ctx:miniparser.RelationalContext):
+        pass
+
+
+    # Enter a parse tree produced by miniparser#additive.
+    def enterAdditive(self, ctx:miniparser.AdditiveContext):
+        pass
+
+    # Exit a parse tree produced by miniparser#additive.
+    def exitAdditive(self, ctx:miniparser.AdditiveContext):
+        pass
+
+
+    # Enter a parse tree produced by miniparser#multiplicative.
+    def enterMultiplicative(self, ctx:miniparser.MultiplicativeContext):
+        pass
+
+    # Exit a parse tree produced by miniparser#multiplicative.
+    def exitMultiplicative(self, ctx:miniparser.MultiplicativeContext):
+        pass
+
+
+    # Enter a parse tree produced by miniparser#unary.
+    def enterUnary(self, ctx:miniparser.UnaryContext):
+        pass
+
+    # Exit a parse tree produced by miniparser#unary.
+    def exitUnary(self, ctx:miniparser.UnaryContext):
+        pass
+
+
+    # Enter a parse tree produced by miniparser#postfix.
+    def enterPostfix(self, ctx:miniparser.PostfixContext):
+        pass
+
+    # Exit a parse tree produced by miniparser#postfix.
+    def exitPostfix(self, ctx:miniparser.PostfixContext):
+        pass
+
+
+    # Enter a parse tree produced by miniparser#primary.
+    def enterPrimary(self, ctx:miniparser.PrimaryContext):
+        pass
+
+    # Exit a parse tree produced by miniparser#primary.
+    def exitPrimary(self, ctx:miniparser.PrimaryContext):
         pass
 
 
